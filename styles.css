@@ -29,7 +29,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: linear-gradient(135deg, #E8F4F8 0%, #F0F8FF 100%);
+    background: linear-gradient(135deg, #E8F4F8 0%, #F0F8FF 100%);
     font-family: Arial, sans-serif;
 }
 
@@ -57,7 +57,7 @@ body {
     flex: 1;
     font-size: 20px;
     font-weight: bold;
-    color:#0066CC;
+    color:#FF902A;
 }
 
 .timer {
@@ -70,7 +70,7 @@ body {
 #game-container {
     width: 800px;
     height: 600px;
-    background-color: linear-gradient(180deg, #E8F4F8 0%, #D0E8F2 100%);
+    background: linear-gradient(180deg, #E8F4F8 0%, #D0E8F2 100%);
     border: 3px solid #0066CC;
     border-radius: 12px;
     position: relative;
@@ -243,7 +243,7 @@ body {
 }
 
 #play-again-btn:hover {
-    background-color: #0066CC;
+    background-color: #004499;
     transform: translateY(-2px);
 }
 
