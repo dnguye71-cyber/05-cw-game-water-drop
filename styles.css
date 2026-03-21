@@ -2,7 +2,7 @@
 
 Primary Colors:
 - Yellow:     #FFC907
-- Blue:       #2E9DF7
+- Blue:       #0066CC
 
 Secondary Colors:
 - Light Blue: #8BD1CB
@@ -29,7 +29,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: linear-gradient(135deg, #E8F4F8 0%, #F0F8FF 100%);
     font-family: Arial, sans-serif;
 }
 
@@ -45,54 +45,73 @@ body {
     justify-content: space-between;  /* Space between score and button */
     align-items: center;
     width: 800px;
-    padding: 10px;
+    padding: 15px 20px;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 2px solid #0066CC;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    gap: 20px;
+}
+
+.combo {
+    flex: 1;
+    font-size: 20px;
+    font-weight: bold;
+    color:#0066CC;
 }
 
 .timer {
-    flex: 0 1 auto;
-    font-size: 24px;
+    flex: 1;
+    font-size: 20px;
     font-weight: bold;
+    color:#0066CC;
 }
 
 #game-container {
     width: 800px;
     height: 600px;
-    background-color: #e6f7ff;
-    border: 2px solid #333;
-    border-radius: 8px;
+    background-color: linear-gradient(180deg, #E8F4F8 0%, #D0E8F2 100%);
+    border: 3px solid #0066CC;
+    border-radius: 12px;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 
 #start-btn {
-    padding: 8px 16px;
-    background-color: #4CAF50;
-    color: white;
+    padding: 10px 24px;
+    background-color: #FFD700;
+    color: #333;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
 }
 
 #start-btn:hover {
-    background-color: #45a049;
+    background-color: #FFC007;
+    transform: scale(1.05);
+}
+
+#start-btn:active {
+    transform: scale(0.95);
 }
 
 .score {
-    flex: 0 1 auto;  /* Don't grow, can shrink, auto basis */
+    flex: 1;
     font-size: 24px;
     font-weight: bold;
+    color: #0066CC;
 }
 
 .water-drop {
     position: absolute;
     width: 60px;  /* increased from 40px */
     height: 60px; /* increased from 40px */
-    background-color: #0099ff;
+    background-color: #0066CC;
     border-radius: 50%;
     animation: dropFall linear forwards;
     transform-origin: center;
@@ -100,46 +119,193 @@ body {
     padding: 15px;  /* Add padding for larger click area */
     margin: -15px;  /* Offset padding to maintain visual size */
     transition: transform 0.1s ease;  /* Smooth hover effect */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 .water-drop:hover {
     transform: scale(1.1);  /* Slight grow effect on hover */
+    background-color: #0052A3;  /* Darker blue on hover */
 }
 
 .bad-drop {
     background-color: #ff4444;
 }
 
+.bad-drop:hover {
+    background-color: #CC3333;
+}
+
+
 .game-title {
-    color: #131313;
+    color: #0066CC;
     font-size: 48px;
     margin-top: 0;
     margin-bottom: 5px;  /* reduced from 20px */
     text-align: center;
+    font-weight: bold;
 }
 
 .game-tagline {
     color: #666;
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 20px;
     text-align: center;
+    max-width: 600px;
 }
 
 @keyframes dropFall {
     from {
         transform: translateY(-20px);
+        opacity: 1;
     }
     to {
         transform: translateY(600px);
+        opacity: 0.7;
     }
 }
 
-@media (max-width: 850px) {
-    .game-wrapper, .score-panel, #game-container {
-        width: 95vw;
+/* Adding new Hidden utility class for better code management */
+.hidden {
+    display: none !important;
+}
+
+/* End screen Styling */
+#end-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.end-screen-content {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    max-width: 450px;
+    animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
     }
-    
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.end-screen-content h2 {
+    color: #0066CC;
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+
+.end-screen-content p {
+    color: #333;
+    margin: 12px 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+#end-message {
+    font-size: 18px;
+    color: #666;
+}
+
+#final-score {
+    font-size: 28px !important;
+    font-weight: bold !important;
+    color: #FFD700;
+    margin: 20px 0 !important;
+}
+
+#play-again-btn {
+    background-color: #0066CC;
+    color: white;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 15px 8px 10px;
+    transition: all 0.3s ease;
+}
+
+#play-again-btn:hover {
+    background-color: #0066CC;
+    transform: translateY(-2px);
+}
+
+.learn-more {
+    background-color: #159A48;
+    color: white;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 8px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.learn-more:hover {
+    background-color: #117A38;
+    transform: translateY(-2px);
+}
+/* Responsive Design for smaller screens */
+@media (max-width: 850px) {
+     .game-wrapper {
+        padding: 10px;
+    }
+
+    .game-title {
+        font-size: 36px;
+    }
+
+    .game-tagline {
+        font-size: 14px;
+    }
+
+    .score-panel {
+        width: 95vw;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .score, .combo, .timer {
+        font-size: 16px;
+    }
+
     #game-container {
+        width: 95vw;
         height: 70vh;
+    }
+
+    .end-screen-content {
+        padding: 30px 20px;
+        width: 90vw;
+        max-width: 400px;
+    }
+
+    .end-screen-content h2 {
+        font-size: 28px;
+    }
+
+    #final-score {
+        font-size: 24px !important;
     }
 }

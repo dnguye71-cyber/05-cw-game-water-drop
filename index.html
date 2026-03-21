@@ -3,20 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Water Drop Game</title>
+    <title>Clean Drop Rush - charity: water</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="game-wrapper">
-        <h1 class="game-title">Water Drop</h1>
-        <p class="game-tagline">Catch the good drops, avoid the bad ones!</p>
+        <h1 class="game-title">Clean Drop Rush</h1>
+        <p class="game-tagline">Collect liters of clean water for communities in need!</p>
+        
+        <!-- → Updated Score panel with combos added -->
         <div class="score-panel">
-            <div class="score">Score: <span id="score">0</span></div>
+            <div class="score">Score: <span id="score">0</span> L</div>
+            <!-- → CHANGE: Add "L" suffix to make it "Score: <span id="score">0</span> L" -->
+            <div class="combo">Combo: <span id="combo">0</span></div>
+            
             <div class="timer">Time: <span id="time">30</span>s</div>
             <button id="start-btn">Start Game</button>
         </div>
         
         <div id="game-container">
+        </div>
+
+        <!-- → ADD NEW: End screen (hidden by default) -->
+        <div id="end-screen" class="hidden">
+            <div class="end-screen-content">
+                <h2>Game Over!</h2>
+                <p id="end-message"></p>
+                <p id="final-score"></p>
+                <button id="play-again-btn">Play Again</button>
+                <a href="https://www.charitywater.org" target="_blank" class="learn-more">Learn More About charity: water</a>
+            </div>
         </div>
     </div>
     
