@@ -315,11 +315,14 @@ body {
 }
 
 .bad-drop {
-    background-color: #ff4444;
+    background: radial-gradient(circle, #ff4d4d, #990000);
+    border: 2px solid #660000;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+    cursor: pointer;
 }
 
 .bad-drop:hover {
-    background-color: #CC3333;
+    transform: scale(1.1);
 }
 
 
