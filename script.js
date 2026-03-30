@@ -5,6 +5,8 @@ let timer = 30;    // Will track the time left in the game for display and end c
 let score = 0;    // Will track the player's score based on caught drops and combos
 let timerInterval; // Will store the timer that counts down the game time
 let currentDifficulty = null; // Will track the current difficulty level of the game (easy, medium, hard)
+const gameWidth = gameContainer.offsetWidth;
+const gameHeight = gameContainer.offsetHeight;
 
 // Drop management
 let currentWaterDrop = null;
@@ -99,6 +101,7 @@ function startGame() {
   // Start creating water droplets
   createWaterDroplet();
   createBadDrop();
+  console.log("Container size:", gameWidth, gameHeight);
   
   // Start creating bad drops (based on difficulty)
   const settings = difficultySettings[currentDifficulty];
