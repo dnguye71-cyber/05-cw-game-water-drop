@@ -1,3 +1,190 @@
+/* Google Fonts Declaring*/
+body {
+    font-family: 'Poppins', 'Raleway', Arial, sans-serif;
+}
+
+/* Utility classes for better code management */
+.hidden {
+    display: none !important;
+}
+
+/* Difficulty Screen Selection */
+.difficulty-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.difficulty-content {
+  background: white;
+  padding: 60px 40px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  max-width: 600px;
+  animation: popIn 0.4s ease;
+}
+
+.difficulty-content h2 {
+  color: #0066CC;
+  margin-bottom: 20px;
+  font-size: 32px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+}
+
+
+.difficulty-content p {
+  color: #666;
+  margin: 12px 0;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.difficulty-btn {
+  padding: 20px 40px;
+  margin: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 150px;
+}
+
+.difficulty-btn.easy {
+  background-color: #4FCB53;
+  color: white;
+}
+
+.difficulty-btn.easy:hover {
+  background-color: #3AA840;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 203, 83, 0.4);
+}
+
+.difficulty-btn.normal {
+  background-color: #0066CC;
+  color: white;
+}
+
+.difficulty-btn.normal:hover {
+  background-color: #004499;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.4);
+}
+
+.difficulty-btn.hard {
+  background-color: #FF902A;
+  color: white;
+}
+
+.difficulty-btn.hard:hover {
+  background-color: #E67A1A;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 144, 42, 0.4);
+}
+
+.difficulty-desc {
+  display: block;
+  font-size: 12px;
+  opacity: 0.9;
+  margin-top: 5px;
+}
+
+/* Footer Styling */
+.game-footer {
+  background-color: #0066CC;
+  color: white;
+  padding: 30px 20px;
+  margin-top: 40px;
+  text-align: center;
+  border-top: 3px solid #FFD700;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-content p {
+  margin: 10px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: 'Raleway', sans-serif;
+}
+
+.footer-content strong {
+  color: #FFD700;
+}
+
+.footer-links {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: #FFD700;
+  text-decoration: none;
+  padding: 10px 15px;
+  border: 2px solid #FFD700;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-links a:hover {
+  background-color: #FFD700;
+  color: #0066CC;
+  transform: translateY(-2px);
+}
+
+.footer-mission {
+  font-style: italic;
+  color: #E8F4F8;
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+/* Mobile responsive footer */
+@media (max-width: 850px) {
+  .footer-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .footer-links a {
+    display: block;
+    width: 100%;
+  }
+  
+  .game-footer {
+    padding: 20px 10px;
+  }
+
+  .difficulty-content {
+    padding: 40px 20px;
+  }
+
+  .difficulty-btn {
+    min-width: 120px;
+    padding: 15px 20px;
+  }
+}
+
 /* Charity: water Brand Colors & Fonts
 
 Primary Colors:
