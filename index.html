@@ -5,12 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clean Drop Rush - charity: water</title>
     <link rel="stylesheet" href="styles.css">
+    <!-----> Google Fonts for a more playful and engaging look
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="game-wrapper">
         <h1 class="game-title">Clean Drop Rush</h1>
         <p class="game-tagline">Collect liters of clean water for communities in need!</p>
         
+        <!-- DIFFICULTY SELECTION SCREEN (NEW) -->
+        <div id="difficulty-screen" class="difficulty-screen">
+            <div class="difficulty-content">
+                <h2>Select Difficulty</h2>
+                <p>Choose your challenge level:</p>
+                
+                <button id="easy-btn" class="difficulty-btn easy">
+                    🌊 Easy<br>
+                    <span class="difficulty-desc">40 seconds, 200L goal</span>
+                </button>
+                
+                <button id="normal-btn" class="difficulty-btn normal">
+                    💧 Normal<br>
+                    <span class="difficulty-desc">30 seconds, 200L goal</span>
+                </button>
+                
+                <button id="hard-btn" class="difficulty-btn hard">
+                    ⚡ Hard<br>
+                    <span class="difficulty-desc">20 seconds, 300L goal</span>
+                </button>
+            </div>
+        </div>
+
         <!-- → Updated Score panel with combos added -->
         <div class="score-panel">
             <div class="score">Score: <span id="score">0</span> L</div>
@@ -24,7 +51,7 @@
         <div id="game-container">
         </div>
 
-        <!-- → ADD NEW: End screen (hidden by default) -->
+        <!-- → End screen (hidden by default) -->
         <div id="end-screen" class="hidden">
             <div class="end-screen-content">
                 <h2>Game Over!</h2>
@@ -35,6 +62,24 @@
             </div>
         </div>
     </div>
+    
+
+    <!-- → Footer with Charity Links and Information -->
+    <footer class="game-footer">
+        <div class="footer-content">
+            <p>Clean Drop Rush is a project for <strong>charity: water</strong></p>
+            
+            <div class="footer-links">
+                <a href="https://www.charitywater.org/" target="_blank">🌍 Visit charity: water</a>
+                <a href="https://www.charitywater.org/donate" target="_blank">💧 Make a Donation</a>
+                <a href="https://www.charitywater.org/our-work" target="_blank">📍 See Our Impact</a>
+            </div>
+            
+            <p class="footer-mission">
+                "Access to clean water is a basic human right, yet 2 billion people live without it."
+            </p>
+        </div>
+    </footer>
     
     <script src="script.js"></script>
 </body>
