@@ -5,8 +5,6 @@ let timer = 30;    // Will track the time left in the game for display and end c
 let score = 0;    // Will track the player's score based on caught drops and combos
 let timerInterval; // Will store the timer that counts down the game time
 let currentDifficulty = null; // Will track the current difficulty level of the game (easy, medium, hard)
-const gameWidth = gameContainer.offsetWidth;
-const gameHeight = gameContainer.offsetHeight;
 
 // Drop management
 let currentWaterDrop = null;
@@ -87,6 +85,8 @@ function setDifficulty(difficulty) {
 }
 
 function startGame() {
+  console.log("🚀 startGame called");
+  console.log("Difficulty:", currentDifficulty);
   if (!currentDifficulty) {
     console.warn("No difficulty selected!");
     showDifficultyScreen();
@@ -101,7 +101,7 @@ function startGame() {
   // Start creating water droplets
   createWaterDroplet();
   createBadDrop();
-  console.log("Container size:", gameWidth, gameHeight);
+
   
   // Start creating bad drops (based on difficulty)
   const settings = difficultySettings[currentDifficulty];
@@ -136,6 +136,7 @@ function startTimer() {
 // ===== WATER DROPLET SYSTEM =====
 
 function createWaterDroplet() {
+   console.log("💧 Creating water drop");
   // Remove previous droplet if exists
   if (currentWaterDrop) {
     currentWaterDrop.remove();
@@ -156,6 +157,8 @@ function createWaterDroplet() {
   const gameContainer = document.getElementById("game-container");
   const gameWidth = gameContainer.offsetWidth;
   const gameHeight = gameContainer.offsetHeight;
+
+  console.log("💧 Container size (water):", gameWidth, gameHeight);
   
   // Random initial position
   drop.style.left = Math.random() * (gameWidth - size) + "px";
@@ -223,6 +226,7 @@ function createWaterDroplet() {
 // ===== BAD DROP SYSTEM =====
 
 function createBadDrop() {
+  console.log("💀 Creating bad drop");
   const settings = difficultySettings[currentDifficulty];
   
   // Check max bad drops
@@ -240,6 +244,8 @@ function createBadDrop() {
   const gameContainer = document.getElementById("game-container");
   const gameWidth = gameContainer.offsetWidth;
   const gameHeight = gameContainer.offsetHeight;
+
+  console.log("💀 Container size (bad):", gameWidth, gameHeight);
   
   // Random initial position
   drop.style.left = Math.random() * (gameWidth - size) + "px";
