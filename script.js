@@ -327,36 +327,39 @@ function endGame() {
 }
 
 function resetGame() {
-  console.log("🔄 Resetting game");
-  // Reset all game variables to their initial state
+ console.log("🔄 Resetting game");
+
   gameRunning = false;
-  
-  // Clear all intervals to stop any ongoing game processes safely
+
+  // Clear intervals
   if (timerInterval) clearInterval(timerInterval);
   if (waterDropInterval) clearInterval(waterDropInterval);
-  if (badDropSpawnInterval) clearInterval(badDropSpawnInterval);  
-  
+  if (badDropSpawnInterval) clearInterval(badDropSpawnInterval);
+
+  // Reset variables
   combo = 0;
   timer = 0;
   score = 0;
   currentDifficulty = null;
+
+  // Reset drop references
+  currentWaterDrop = null;
+  waterDropInterval = null;
+  badDropSpawnInterval = null;
   currentBadDrops = [];
 
-  // Clear DOM elements related to drops
+  // Remove all drops
   document.querySelectorAll(".water-drop").forEach(d => d.remove());
 
-  // Update the display to reflect the reset state
+  // Reset UI counters
   document.getElementById("score").textContent = 0;
   document.getElementById("combo").textContent = 0;
   document.getElementById("time").textContent = 0;
-  
-  // Hide the end screen and show the start button again
-  document.getElementById("end-screen").classList.add("hidden");
-  
-  document.querySelectorAll(".water-drop").forEach(d => d.remove());
-  currentBadDrops = [];
 
- 
+  // Hide end screen
+  document.getElementById("end-screen").classList.add("hidden");
+
+  // ✅ Show difficulty screen again
   showDifficultyScreen();
 }
 
