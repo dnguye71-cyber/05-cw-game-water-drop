@@ -45,16 +45,11 @@ const difficultySettings = {
 };
 
 // ===== EVENT LISTENERS =====
-document.getElementById("start-btn").addEventListener("click", startGame);
-document.getElementById("play-again-btn").addEventListener("click", resetGame);
-
 // Difficulty selection buttons
 document.getElementById("easy-btn").addEventListener("click", () => setDifficulty("easy"));
 document.getElementById("normal-btn").addEventListener("click", () => setDifficulty("normal"));
 document.getElementById("hard-btn").addEventListener("click", () => setDifficulty("hard"));
 
-// Wait for button click to start the game
-document.getElementById("start-btn").addEventListener("click", startGame);
 
 // Add play again button to restart the game after it ends
 document.getElementById("play-again-btn").addEventListener("click", resetGame);
@@ -74,7 +69,6 @@ function setDifficulty(difficulty) {
   const settings = difficultySettings[difficulty];
   
   // Apply difficulty settings to game variables
-  timer = settings.duration;
   score = 0;
   combo = 0;
   
@@ -91,6 +85,12 @@ function setDifficulty(difficulty) {
 }
 
 function startGame() {
+  if (!currentDifficulty) {
+    console.warn("No difficulty selected!");
+    showDifficultyScreen();
+    return;
+  }
+  
   // Prevent multiple games
   if (gameRunning) return;
   
@@ -98,6 +98,7 @@ function startGame() {
   
   // Start creating water droplets
   createWaterDroplet();
+  createBadDrop();
   
   // Start creating bad drops (based on difficulty)
   const settings = difficultySettings[currentDifficulty];
