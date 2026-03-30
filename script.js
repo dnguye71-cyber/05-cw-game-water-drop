@@ -57,11 +57,14 @@ document.getElementById("play-again-btn").addEventListener("click", resetGame);
 // ===== DIFFICULTY SYSTEM =====
 
 function showDifficultyScreen() {
-  document.getElementById("difficulty-screen").style.display = "flex";
+  document.getElementById("difficulty-screen").classList.remove("hidden");
 }
 
 function hideDifficultyScreen() {
-  document.getElementById("difficulty-screen").style.display = "none";
+  const screen = document.getElementById("difficulty-screen");
+  screen.style.display = "none";
+  screen.style.visibility = "hidden";
+  screen.style.pointerEvents = "none";
 }
 
 function setDifficulty(difficulty) {
